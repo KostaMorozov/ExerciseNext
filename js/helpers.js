@@ -24,4 +24,5 @@ export function delegateEvent(target, selector, type, handler, capture) {
   listen(target, type, dispatchEvent, !!capture);
 }
 
-export const escapeForHTML = (s) => s;
+export const escapeForHTML = (s) =>
+  s.replace(/[&<]/g, (c) => (c === "&" ? "&amp;" : "&lt;"));
